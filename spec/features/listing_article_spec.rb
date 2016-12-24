@@ -6,9 +6,10 @@ RSpec.feature "Listing Articles" do
   # expect both article titles and bodies to be present
 
   before do
-    @article1 = Article.create(title: "The first article", body: "Lorem ipsum dolor sit amet")
+    john = User.create(email: "john@example.com", password: "password")
 
-    @article2 = Article.create(title: "The second article", body: "Body of 2nd article")
+    @article1 = Article.create(title: "The first article", body: "Lorem ipsum dolor sit amet", user: john)
+    @article2 = Article.create(title: "The second article", body: "Body of 2nd article", user: john)
   end
 
   scenario "A user lists all articles" do
